@@ -5,13 +5,33 @@ import java.util.*;
 public class find_route{
 	
 	//public node pop(queue)
+	class Neighbor{
+		int vertexNumber;
+		Neighbor next;
+		public Neighbor(int vnum,Neighbor neighbor){
+			this.vertexNumber = vnum;
+			next = neighbor; 
+		}
+	}
+	class Vertex{
+		String name;
+		Neighbor adjacency_list;
+		Vertex(String name, Neighbor neighbors){
+		this.name = name;
+		this.adjacency_list = neighbors;
+		}
+	}
+
 
 
 	public static void main(String[] args){
-	//READ THE FILE INTO A WEIGHTED ADJACENCY LIST
+	//READ THE FILE INTO AN ADJACENCY LIST
 		ArrayList<String> closed_set = new ArrayList<String>();
-		PriorityQueue<Node> fringe;
+		//PriorityQueue<Node> fringe; //use a priority queue to sort while inserting
 		String start, goal;
+		Vertex[] states; //collection of names and all of the adjacency linked lists of all vertices
+
+	
 		
 
 	//PERFORM PROBLEM SOLVING AGENT USING UNIFORM COST SEARCH & GRAPH SEARCH
